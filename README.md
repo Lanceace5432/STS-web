@@ -1,16 +1,45 @@
 # STS-web
 STS website prototyping
 
-🎯 What you can realistically finish in 1 month
+---This is your main feature ----
+1. Map with Location & Distance
+Use OpenStreetMap with Leaflet
+Show dorms as map markers
+When a user clicks a marker:
+Show dorm name
+Price
+Distance from student (basic estimate)
+Add a “Use My Location” button
 
-If you stay focused, you can build:
+2. Student → Owner Messaging (Simple Version)
 
-Map with Leaflet using OpenStreetMap
-Display dorm locations (markers)
-Click marker → show dorm details
-Simple “Add Dorm” form (for owners)
-Basic student view (browse dorms)
-Responsive layout (basic mobile support)
+Instead of real-time chat, do:
 
-👉 This is already strong enough for a thesis/demo
+“Message Owner” button
+Indicated the number/gmail/ socials of the owner
 
+3. Owner Dorm Submission Form
+Owners can add dorm listings
+Form includes:
+Dorm name
+Price
+Location (pin on map or coordinates)
+Description
+
+After submitting:
+Dorm appears on the map
+
+---------------------------------------------------------------------------------------------
+USER FLOW
+Student:
+ pens website
+ Sees nearby dorms on map near PUP main
+ Clicks a dorm marker
+ Sees details + distance
+ Clicks “Message Owner” → see the details
+
+Owner:
+ Opens “Add Dorm”
+ Fills up form
+ Submits
+ Dorm appears on the map
