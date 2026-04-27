@@ -31,15 +31,7 @@ Dorm appears on the map
 
 ---------------------------------------------------------------------------------------------
 USER FLOW
-Student:
- pens website
- Sees nearby dorms on map near PUP main
- Clicks a dorm marker
- Sees details + distance
- Clicks “Message Owner” → see the details
+Student: pens website → Sees nearby dorms on map near PUP main → Clicks a dorm marker → Sees details + distance → Clicks “Message Owner” → see the details
 
 Owner:
- Opens “Add Dorm”
- Fills up form
- Submits
- Dorm appears on the map
+ Opens “Add Dorm” → Fills up form → Submits → Dorm appears on the map
