@@ -25,17 +25,17 @@
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="logo">
-       <img src="./Images/RooME.webp" alt="RooME Logo">
+       <img src="./Images/RooME.webp" alt="RooME Logo" onclick="window.location.href='index.html'">
     </div>
 
     <nav>
       <ul class="nav-links">
-        <li><a href="#"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="index.html"><i class="fa-solid fa-house"></i> Home</a></li>
         <li><a href="map.html"><i class="fa-solid fa-magnifying-glass"></i> Map</a></li>
       </ul>
     </nav>
 
-    <button class="signin-btn">Sign In</button>
+    <button class="signin-btn" onclick="window.location.href='signin.html'">Sign In</button>
   </header>
 
   <!-- HERO SECTION -->
@@ -110,6 +110,8 @@
   </div>
 </section>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="api.js"></script>
   <script src="Script.js"></script>
+  <script>updateNavbar();</script>
 </body>
 </html>
