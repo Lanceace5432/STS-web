@@ -17,16 +17,27 @@ document.addEventListener('DOMContentLoaded', async () => {
     attribution: '© OpenStreetMap contributors'
   }).addTo(map);
 
-  const createIcon = (color) => L.divIcon({
-    className: 'custom-icon',
-    html: `<div style="background:${color};width:14px;height:14px;border-radius:50%;border:2px solid white;box-shadow:0 0 6px rgba(0,0,0,0.5);"></div>`,
-    iconSize: [18, 18], iconAnchor: [9, 9], popupAnchor: [0, -12]
+  // Custom Icon Configurator using your uploaded assets
+  const userIcon = L.icon({
+    iconUrl: './Images/red.webp',      // PUP Main Campus
+    iconSize: [38, 42],
+    iconAnchor: [19, 42],
+    popupAnchor: [0, -42]
   });
 
-  const userIcon  = createIcon('#dc2626');
-  const availIcon = createIcon('#10b981');
-  const fullIcon  = createIcon('#008080');
+  const availIcon = L.icon({
+    iconUrl: './Images/green.webp',    // Available Dorms
+    iconSize: [38, 42],
+    iconAnchor: [19, 42],
+    popupAnchor: [0, -42]
+  });
 
+  const fullIcon = L.icon({
+    iconUrl: './Images/blue.webp',     // Full / Fully Booked Dorms
+    iconSize: [38, 42],
+    iconAnchor: [19, 42],
+    popupAnchor: [0, -42]
+  });
   // PUP marker
   L.marker(PUP, { icon: userIcon }).addTo(map)
     .bindPopup('<b>PUP Main Campus</b><br>Sta. Mesa, Manila').openPopup();

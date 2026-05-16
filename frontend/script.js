@@ -2,19 +2,43 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // SEARCH
+  // SEARCH & REDIRECT LOGIC
   const searchBtn = document.querySelector(".search-btn");
+  const ctaBtn = document.querySelector(".cta-btn"); // Selected the big CTA button
   const input = document.querySelector("input");
 
-  searchBtn.addEventListener("click", () => {
+  function handleSearch() {
     const location = input.value.trim();
 
     if (location === "") {
-      alert("Please enter a location.");
+      // If empty, redirect to the map page showing everything
+      window.location.href = "map.html";
     } else {
-      alert(`Searching dorms near ${location}`);
+      // Redirect to map.html and pass the location text in the URL
+      window.location.href = `map.html?search=${encodeURIComponent(location)}`;
     }
+  }
+
+  // Trigger when clicking the Search icon button
+  if (searchBtn) {
+    searchBtn.addEventListener("click", handleSearch);
+  }
+
+  // Trigger when clicking the "Search Dorms" CTA button
+  if (ctaBtn) {
+  ctaBtn.addEventListener("click", () => {
+    window.location.href = "map.html";
   });
+}
+  // Optional: Trigger search when user hits "Enter" inside the text box
+  if (input) {
+    input.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        handleSearch();
+      }
+    });
+  }
+
 
   // MAP — only initialize if the #map element exists on this page
   const mapEl = document.getElementById("map");
