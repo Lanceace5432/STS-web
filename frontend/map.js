@@ -20,21 +20,21 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Custom Icon Configurator using your uploaded assets
   const userIcon = L.icon({
     iconUrl: './Images/red.webp',      // PUP Main Campus
-    iconSize: [38, 42],
+    iconSize: [60, 66],
     iconAnchor: [19, 42],
     popupAnchor: [0, -42]
   });
 
   const availIcon = L.icon({
     iconUrl: './Images/green.webp',    // Available Dorms
-    iconSize: [38, 42],
+    iconSize: [60, 66],
     iconAnchor: [19, 42],
     popupAnchor: [0, -42]
   });
 
   const fullIcon = L.icon({
     iconUrl: './Images/blue.webp',     // Full / Fully Booked Dorms
-    iconSize: [38, 42],
+    iconSize: [60, 66],
     iconAnchor: [19, 42],
     popupAnchor: [0, -42]
   });
