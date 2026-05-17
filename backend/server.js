@@ -34,8 +34,12 @@ app.use('/api/messages', require('./routes/messages'));
 // ─── Serve Frontend ───────────────────────────────────────────────────────────
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-// Catch-all: serve index.html for any unmatched route (Express 5 syntax)
-app.get('/{*path}', (req, res) => {
+// Clean Catch-all: serve index.html for any unmatched frontend route
+app.get('*', (req, res) => {
+  // If an API endpoint is typed wrong or missing, return a JSON error instead of HTML
+  if (req.path.startsWith('/api/')) {
+    return res.status(404).json({ error: `API route ${req.path} not found` });
+  }
   res.sendFile(path.join(__dirname, '../frontend', 'index.html'));
 });
 
