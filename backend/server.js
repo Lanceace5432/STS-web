@@ -31,18 +31,20 @@ app.use('/api/auth',     require('./routes/auth'));
 app.use('/api/dorms',    require('./routes/dorms'));
 app.use('/api/messages', require('./routes/messages'));
 
+// Serve uploaded dorm images
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 // ─── Serve Frontend ───────────────────────────────────────────────────────────
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-// Clean Catch-all: serve index.html for any unmatched frontend route
+// Standard safe Express 4 wildcard path
 app.get('*', (req, res) => {
-  // If an API endpoint is typed wrong or missing, return a JSON error instead of HTML
+  // Prevent API endpoint typos from serving HTML files
   if (req.path.startsWith('/api/')) {
     return res.status(404).json({ error: `API route ${req.path} not found` });
   }
   res.sendFile(path.join(__dirname, '../frontend', 'index.html'));
 });
-
 // ─── Start ────────────────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
