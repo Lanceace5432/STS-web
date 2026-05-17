@@ -31,20 +31,18 @@ app.use('/api/auth',     require('./routes/auth'));
 app.use('/api/dorms',    require('./routes/dorms'));
 app.use('/api/messages', require('./routes/messages'));
 
-// Serve uploaded dorm images
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
 // ─── Serve Frontend ───────────────────────────────────────────────────────────
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-// Standard safe Express 4 wildcard path
+// Standard catch-all for single-page applications
 app.get('*', (req, res) => {
-  // Prevent API endpoint typos from serving HTML files
+  // If a request accidentally targets a broken api route, don't return index.html
   if (req.path.startsWith('/api/')) {
     return res.status(404).json({ error: `API route ${req.path} not found` });
   }
   res.sendFile(path.join(__dirname, '../frontend', 'index.html'));
 });
+
 // ─── Start ────────────────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
