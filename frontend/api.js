@@ -1,7 +1,7 @@
 // frontend/api.js — Shared API & Auth utilities
 
-const API_BASE = 'http://localhost:3000/api';
-const WS_URL   = 'ws://localhost:3000/ws';
+const API_BASE = 'https://sts-web-zqr2.onrender.com/api';
+const WS_URL   = 'wss://sts-web-zqr2.onrender.com/ws';
 
 // ─── Auth Helpers ─────────────────────────────────────────────────────────────
 
