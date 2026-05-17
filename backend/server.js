@@ -17,7 +17,10 @@ const { startWsGateway } = require('./chat/ws-gateway');
 startWsGateway(server);
 
 // ─── Middleware ───────────────────────────────────────────────────────────────
-app.use(cors({ origin: '*' }));
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://sts-web-zqr2.onrender.com'], 
+  credentials: true
+}));
 app.use(express.json());
 
 // Serve uploaded dorm images
