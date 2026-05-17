@@ -4,8 +4,10 @@ const cors = require('cors');
 const path = require('path');
 const http = require('http');
 
-// Start TCP chat server first (before WS gateway)
-require('./chat/tcp-server');
+// Start TCP chat server only when running locally on your computer
+if (process.env.NODE_ENV !== 'production') {
+  require('./chat/tcp-server');
+}
 
 const app = express();
 const server = http.createServer(app);
